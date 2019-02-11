@@ -1,0 +1,35 @@
+<script>
+var verif = true;
+var output = '';
+var alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
+var specs = "!@#$%^&*()+=-[]\\\';,./{}|\":<>? ";
+
+
+  var input = prompt("Enter text")
+	var lowerCaseStr = input.toLowerCase();
+	
+	
+	var num = prompt("Enter shift")
+	var num1 = parseInt(num)
+	
+	
+    for(var i=0; i<lowerCaseStr.length; i++){
+  		var currentLetter = lowerCaseStr[i]
+  		if(specs.indexOf(currentLetter) != -1){
+  			output += currentLetter;
+  			continue;
+  	  }
+  		var currentIndex = alphabet.indexOf(currentLetter);
+  		var newIndex = currentIndex + num1;
+  		if(newIndex>25) newIndex=newIndex-26;
+  		if(newIndex<0) newIndex = newIndex + 26;
+  		if(lowerCaseStr[i] ===lowerCaseStr[i].toUpperCase()){
+  			output += alphabet[newIndex].toUpperCase();
+  		}
+  		else output += alphabet[newIndex];
+  	}
+  	alert(output)
+
+</script>
+
+	
