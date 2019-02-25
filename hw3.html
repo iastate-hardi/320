@@ -1,0 +1,38 @@
+<p>Input:<br><textarea id="input" rows="10" cols="80"></textarea>
+<p><button onclick="process()">Process</button>
+<p>Output:<br><textarea id="output" rows="10" cols="80"></textarea>
+
+<script>
+
+function process() {
+  //var x = "A apple is in an box"
+   
+  var x = document.getElementById("input").value;   //ambil input dari text area
+  x = x.toLowerCase()               //change to lowercase
+  words = x.split(" ")              //split input contohnya "I", "have", "a", "book"
+
+  vowels = "aeiouAEIOU"
+  for (i = 0; i < words.length; i++) {                //for loop, mulai dari index 0
+    if (words[i] === "a" || words[i] === "an") {      //ngecek letter "a" dan "an", kalau ada masuk "if"
+      //coba = words[i+1].charAt(0)
+      //alert(coba)
+      if (vowels.indexOf(words[i+1].charAt(0)) === -1) {    //the next word after the a/an article words[i+1] hasilnya -1 berarti consonants
+        //alert("samoe")
+        //continue
+        //nextLetterIsConsonant = true;
+        words[i] = "a";
+      } else if (vowels.indexOf(words[i+1].charAt(0)) != -1) {    //cek ada vowel apa tidak
+        words[i] = "an"
+
+      }
+    }
+    //words[i] = "an"//nextLetterIsConsonant= false;
+
+  }
+
+  y = words.join(" ");      //join the words
+  document.getElementById("output").value = y
+  //return y
+
+}
+</script>
