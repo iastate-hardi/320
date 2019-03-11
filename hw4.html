@@ -1,0 +1,38 @@
+<script>
+question_bank = {
+	on:["The book is___the table.","I am ___ your side.", "The space ship landed ___ the moon."],
+	under:["The dog is sleeping ___ the bed.", "I found your book ___ the chair.","The monster is hiding ___ your pillow."],
+	at:["Our exam starts ___ 8 am.", "I was ___ school all day yesterday.", "I was ___ the bank when you called me."],
+	in:["I was born ___ August.","Please, come ___.", "She woke up crying ___ the middle of the night."],
+	by:["I live ___ the river bank.", "Please submit this assignment ___ the end of this week.", "Please, stand ___." ]
+}
+
+learner_model = {on: 0, under: 0, at: 0, in: 0, by: 0}
+prepositions = ['on', 'under', 'at', 'in', 'by']
+    
+while (true) {
+  worst_known_preposition = prepositions[0]
+  smallest_score = learner_model[worst_known_preposition]
+  for (i=1; i<prepositions.length; i++) {
+    if (learner_model[prepositions[i]] < smallest_score) {
+      smallest_score = learner_model[prepositions[i]]
+      worst_known_preposition = prepositions[i]
+    }
+}
+//alert("Worst known preposition is " + worst_known_preposition)
+
+pick = question_bank[worst_known_preposition][parseInt(Math.random()*question_bank[worst_known_preposition].length)]
+answer = prompt(pick)         //randomize the preposition
+//alert(answer)
+    if(answer === worst_known_preposition){
+        alert("correct!")
+        learner_model[worst_known_preposition]++;
+    } else {
+        learner_model[worst_known_preposition]--;
+		correct = pick.replace("___", worst_known_preposition);
+        alert(correct)
+    }
+}
+    //alert(answer)
+
+</script>
