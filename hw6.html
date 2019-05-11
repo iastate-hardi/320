@@ -1,0 +1,30 @@
+<script>
+questions = {
+what: ["What did you eat for breakfast?",
+"What are your plans for this weekend?",
+"What do you think about the weather today?",
+"What exams did you have today?"],
+how:["How was your morning?",
+"How was your exam?",
+"How was the breakfast you ate today?",
+"How's life been treating you?"]
+}
+
+while(questions.what.length>0 && questions.how.length>0){
+    i = parseInt(Math.random()*questions.what.length)
+    x = prompt(questions.what[i])
+    if(/[a-zA-Z]+/i.test(x)){
+        questions.what.splice(i,1)
+        y = prompt("Ok. "+questions.how[i])
+        questions.how.splice(i,1)
+        if(/\b(good|great|well|fine|awesome|fantastic|alright|not bad|marvelous|wonderful)\b/i.test(y)){
+            z = alert("Awesome. ")
+        } else if(/\b(busy|bad|terrible|awful|boring|horrible|sad|just so so)\b/i.test(z)){
+            z =alert("Too bad. ")
+        }
+    }else {
+        x = prompt("Sorry, what was your saying again?")
+    }
+}
+alert("Your haircut is done. See you next time!")
+</script>
